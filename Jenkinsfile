@@ -3,27 +3,26 @@ pipeline {
         node {
             label 'maven'
         }
-    }    
+    }
 environment {
     PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
-}    
-    stages{
-        stage ("build"){
+}
+    stages {
+        stage("build"){
             steps {
                 sh 'mvn clean deploy'
             }
         }
 
     stage('SonarQube analysis') {
-    environment{
-      scannerHome = tool 'sonarqube-scanner-tell1619'
+    environment {
+      scannerHome = tool 'sonar-scanner-tell1619'
     }
     steps{
-    withSonarQubeEnv('sonarqube-server-tell') { // If you have configured more than one global server connection, you can specify its name
+    withSonarQubeEnv('sonar-server-tell1619') { // If you have configured more than one global server connection, you can specify its name
       sh "${scannerHome}/bin/sonar-scanner"
     }
     }
   }
 }
 }
-
