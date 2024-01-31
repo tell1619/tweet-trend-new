@@ -15,6 +15,10 @@ environment {
         }
 
     stage('SonarQube analysis') {
+    tools {
+        jdk "java-11-openjdk" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration)
+    }
+    
     environment {
       scannerHome = tool 'sonar-scanner-tell1619'
     }
