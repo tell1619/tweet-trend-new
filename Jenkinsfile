@@ -16,7 +16,7 @@ environment {
 
     stage('SonarQube analysis') {
     tools {
-        jdk "openjdk-17.0.9" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration)
+        jdk "openjdk-17.0.9 " // the name you have given the JDK installation using the JDK manager (Global Tool Configuration)
     }
     
     environment {
