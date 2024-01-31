@@ -3,8 +3,7 @@ pipeline {
         node {
             label 'maven'
         }
-    }
-    
+    }    
 environment {
     PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
 }    
@@ -17,11 +16,10 @@ environment {
 
     stage('SonarQube analysis') {
     environment{
-     scannerHome = tool 'sonarqube-scanner-tell1619'
+      scannerHome = tool 'sonarqube-scanner-tell1619'
     }
-    
     steps{
-    withSonarQubeEnv('sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
+    withSonarQubeEnv('sonarqube-server-tell') { // If you have configured more than one global server connection, you can specify its name
       sh "${scannerHome}/bin/sonar-scanner"
     }
     }
