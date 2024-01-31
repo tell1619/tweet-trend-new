@@ -16,14 +16,14 @@ environment {
 
     stage('SonarQube analysis') {
     tools {
-        jdk "openjdk-17.0.9 " // the name you have given the JDK installation using the JDK manager (Global Tool Configuration)
+        jdk "jdk17" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration)
     }
     
     environment {
-      scannerHome = tool 'sonar-scanner-tell1619' 
+      scannerHome = tool 'sonarscanner-tell1619' 
     }
     steps{
-    withSonarQubeEnv('sonar-server-tell1619') { // If you have configured more than one global server connection, you can specify its name
+    withSonarQubeEnv('sonarserver-tell1619') { // If you have configured more than one global server connection, you can specify its name
       sh "${scannerHome}/bin/sonar-scanner"
     }
     }
