@@ -90,6 +90,7 @@
 				<configuration>
 					<argLine>${argLine} -Xmx2048m</argLine>
 				</configuration>
+				<forkCount>0</forkCount>
 			</plugin>
 
 			<plugin>
